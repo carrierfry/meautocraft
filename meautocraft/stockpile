@@ -1,3 +1,5 @@
+require "lib.string_functions"
+
 local args = { ... }
 if #args < 2 then
     printError("Usage: stockpile <amount> <Item Name>")
@@ -19,11 +21,11 @@ local function main()
     local name = args[2]
     for i = 3, #args do
         local str = args[i]
-        -- check if String starts with "   [" and ends with "]". If not then add it to the name
-        if not string.starts(str, "   [") or not string.ends(str, "]") then
-            str = "   [" .. str .. "]"
-        end
         name = name .. " " .. str
+    end
+    -- check if String starts with "   [" and ends with "]". If not then add it to the name
+    if not name:startswith("   [") and not name:endswith("]") then
+        str = "   [" .. str .. "]"
     end
 
     local data = requested_amounts.load()
