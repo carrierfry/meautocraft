@@ -18,7 +18,12 @@ local function main()
 
     local name = args[2]
     for i = 3, #args do
-        name = name .. " " .. args[i]
+        local str = args[i]
+        -- check if String starts with "   [" and ends with "]". If not then add it to the name
+        if not string.starts(str, "   [") or not string.ends(str, "]") then
+            str = "   [" .. str .. "]"
+        end
+        name = name .. " " .. str
     end
 
     local data = requested_amounts.load()
