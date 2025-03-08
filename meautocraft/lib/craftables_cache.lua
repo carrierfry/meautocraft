@@ -52,6 +52,7 @@ end
 local function update(me_bridge)
     local data = {}
     for _, raw in ipairs(me_bridge.listCraftableItems() or {}) do
+        raw.amount = raw.count
         data[field(raw, "name", "string")] = Craftable:new { item = raw, is_fluid = false }
     end
     for _, raw in ipairs(me_bridge.listCraftableFluid() or {}) do
