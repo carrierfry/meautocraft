@@ -157,14 +157,14 @@ local function check_item(craftable, want_amount)
     }
 
     if item:status() == STATUS.LOW and not item:is_crafting() then
-        local craftedItem = { name = item:name(), count = item:want_amount() - item:have_amount() }
+        local craftedItem = { name = item:name(), amount = item:want_amount() - item:have_amount() }
         local craft = me.craftItem
         if item:is_fluid() then
             craft = me.craftFluid
         end
         local status, err = craft(craftedItem)
         if status then
-            print("Crafting " .. item:name() .. " x " .. craftedItem.count)
+            print("Crafting " .. item:name() .. " x " .. craftedItem.amount)
         else
             print("Failed to craft " .. item:name() .. ": " .. err)
         end
