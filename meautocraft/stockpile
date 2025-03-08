@@ -23,6 +23,8 @@ local function main()
         local str = args[i]
         name = name .. " " .. str
     end
+
+    local orig_name = name
     -- check if String starts with "   [" and ends with "]". If not then add it to the name
     if not name:startswith("   [") and not name:endswith("]") then
         name = "   [" .. name .. "]"
@@ -46,9 +48,9 @@ local function main()
     end
     craftables = craftables_cache.pivot_by_display_name(craftables)
 
-    local craftable = craftables[name]
+    local craftable = craftables[orig_name]
     if not craftable then
-        printError("Item is not craftable: " .. name)
+        printError("Item is not craftable: " .. orig_name)
         return
     end
 
