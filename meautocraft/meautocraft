@@ -10,6 +10,14 @@ local SETTINGS = require "lib.SETTINGS"
 local mon = peripherals.monitor()
 local me = peripherals.me_bridge()
 
+function string:startswith(start)
+    return self:sub(1, #start) == start
+end
+
+function string:endswith(ending)
+    return ending == "" or self:sub(-#ending) == ending
+end
+
 if not mon then
     printError("No monitor found")
     return
@@ -101,7 +109,7 @@ end
 function RichItem:display_name()
     local display_name = self.craftable:display_name()
     -- if display name is starting with "   [" and ends with "]" then remove it
-    if string.starts(display_name, "   [") and string.ends(display_name, "]") then
+    if display_name:startswith("   [") and display_name:endswith("]") then
         display_name = string.sub(display_name, 4, -1)
     end
     return display_name
