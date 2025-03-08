@@ -110,7 +110,7 @@ function RichItem:display_name()
     local display_name = self.craftable:display_name()
     -- if display name is starting with "   [" and ends with "]" then remove it
     if display_name:startswith("   [") and display_name:endswith("]") then
-        display_name = string.sub(display_name, 4, -1)
+        display_name = string.sub(display_name, 5, -2)
     end
     return display_name
 end
