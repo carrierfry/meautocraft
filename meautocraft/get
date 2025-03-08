@@ -1,4 +1,6 @@
 local requested_amounts = require "lib.requested_amounts".load()
+require "lib.string_functions"
+
 if not requested_amounts then
     printError("Failed to load requested amounts")
     return
@@ -30,9 +32,9 @@ if not string.starts(args[1], "   [") or not string.ends(args[1], "]") then
     name = "   [" .. name .. "]"
 end
 for i = 2, #args do
-    -- check if String starts with "   [" and ends with "]". If not then add it to the name
-    if not string.starts(args[i], "   [") or not string.ends(args[i], "]") then
-        args[i] = "   [" .. args[i] .. "]"
+    -- if display name is starting with "   [" and ends with "]" then remove it
+    if args[i]:startswith("   [") and args[i]:endswith("]") then
+        args[i] = string.sub(args[i], 5, -2)
     end
     name = name .. " " .. args[i]
 end

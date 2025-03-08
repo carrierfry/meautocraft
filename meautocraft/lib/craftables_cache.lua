@@ -4,6 +4,8 @@ local field = cc_expect.field
 local SETTINGS = require "lib.SETTINGS"
 local ioutils = require "lib.ioutils"
 
+require "string_functions"
+
 ---@class Craftable
 ---@field item table The raw Minecraft item table
 ---@field is_fluid boolean
@@ -25,7 +27,15 @@ end
 
 ---@return string
 function Craftable:display_name()
-    return self.item.displayName or self:name()
+
+    local display_name =  self.item.displayName or self:name()
+    -- if display name is starting with "   [" and ends with "]" then remove it
+    if display_name:startswith("   [") and display_name:endswith("]") then
+        display_name = string.sub(display_name, 5, -2)
+    end
+    return display_name
+
+    -- return self.item.displayName or self:name()
 end
 
 ---@return { [string]: Craftable}

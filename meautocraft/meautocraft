@@ -6,7 +6,7 @@ local requested_amounts = require "lib.requested_amounts"
 local craftables_cache = require "lib.craftables_cache"
 local peripherals = require "lib.peripherals"
 local SETTINGS = require "lib.SETTINGS"
-require_once "lib.string_functions"
+require "lib.string_functions"
 
 local mon = peripherals.monitor()
 local me = peripherals.me_bridge()
