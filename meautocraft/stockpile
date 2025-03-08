@@ -25,7 +25,7 @@ local function main()
     end
     -- check if String starts with "   [" and ends with "]". If not then add it to the name
     if not name:startswith("   [") and not name:endswith("]") then
-        str = "   [" .. str .. "]"
+        name = "   [" .. name .. "]"
     end
 
     local data = requested_amounts.load()
