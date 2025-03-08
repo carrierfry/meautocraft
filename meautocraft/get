@@ -28,7 +28,7 @@ end
 
 local name = args[1]
 -- check if String starts with "   [" and ends with "]". If not then add it to the name
-if not string.starts(args[1], "   [") or not string.ends(args[1], "]") then
+if not string:startswith(name, "   [") or not string:endswith(name, "]") then
     name = "   [" .. name .. "]"
 end
 for i = 2, #args do

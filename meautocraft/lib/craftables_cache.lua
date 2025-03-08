@@ -4,7 +4,7 @@ local field = cc_expect.field
 local SETTINGS = require "lib.SETTINGS"
 local ioutils = require "lib.ioutils"
 
-require "string_functions"
+require "lib.string_functions"
 
 ---@class Craftable
 ---@field item table The raw Minecraft item table
