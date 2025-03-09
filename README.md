@@ -30,13 +30,13 @@ pastebin get W5ZkVYSi gitget
 Grab `meautocraft`. Watch out, this will *overwrite* your `startup` file!
 
 ```sh
-gitget abesto meautocraft main
+gitget carrierfry meautocraft main
 ```
 
 If you want to control installation, you can pass an extra argument to `gitget`. For example, to fetch the code into `downloads/meautocraft`:
 
 ```sh
-gitget abesto meautocraft main downloads/meautocraft
+gitget carrierfry meautocraft main downloads/meautocraft
 ```
 
 That's it, you're good to go! Run `startup` (or reboot the computer) to get things rolling. `meautocraft` will now ensure the items you requested are stockpiled to the amount you requested every few seconds. See below for how to set the number of items you want.
