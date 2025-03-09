@@ -51,7 +51,7 @@ The attached monitor is updated with the stockpile status, with items being craf
 
 The startup script will change the directory of your shell to `meautocraft`, so your prompt should be `meautocraft>`. It also sets up completions for `stockpile` and `get`. From here, you can:
 
-* `stockpile Iron Ingot 128` to ensure you always have 128 iron ingots. Note that the item name is case sensitive!
+* `stockpile 128 Iron Ingot` to ensure you always have 128 iron ingots. Note that the item name is case sensitive!
 * `get Iron Ingot` to see how many iron ingots you've currently requested (if any)
 
 Note that `meautocraft` will get very confused (i.e. it print big red errors) if you have multiple craftable items in your ME network with the same human-friendly name; for example if you have recipes copper ingots from multiple mods. In these situations, it'll arbitrarily pick one variant. This situation is probably generally a bad idea anyway, and you should enable substitutions on your recipes. This trade-off was picked to both use human-friendly names (so that you can type `Iron Ingot` instead of `minecraft:iron_ingot`), and keep code complexity as low as possible.
